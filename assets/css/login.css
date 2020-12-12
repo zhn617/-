@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+body{
+    background: url(/assets/images/login_bg.jpg) no-repeat center/cover;
+}
+body .logo{
+    margin-top: 20px;
+}
+
+.first {
+    width: 400px;
+    height: 310px;
+    background-color:white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.first-1{
+    height: 60px;
+    background: url(/assets/images/login_title.png) no-repeat center;
+}
+
+.first-2{
+    margin: 0 20px;
+}
+.first-2 a ,
+.first-3 a{
+    float:right;
+}
+
+.first-3{
+    display: none;
+    margin: 0 20px;
+}
+
+.mil{
+    position: relative;
+}
+
+.mi{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.layui-input{
+    padding-left: 35px;
+}
