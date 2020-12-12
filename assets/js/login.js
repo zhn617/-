@@ -41,7 +41,7 @@ $('.registered').on('submit',function(e){
     })
 })
 
-$('.login').on('submit',function(e){
+$('.login1').on('submit',function(e){
     e.preventDefault()
     let data = $(this).serialize()
   $.ajax({
@@ -49,15 +49,19 @@ $('.login').on('submit',function(e){
       type:"POST",
       data,
       success:function(res){
-        if(res.message !==0){
+        if(res.status !==0){
             return layer.msg(res.message);
      }
-     layer.msg('登入成功', {
-        time: 2000 //2秒关闭（如果不配置，默认是3秒）
-      }, function(){
-        location.href = "/home/index.html";
-      }); 
-    }
-  })               
- })
+     layer.msg(
+        "登录成功, 即将跳转到首页",
+        {
+          time: 2000, 
+        },
+        function () {
+          location.href = '/home/index.html';
+        }
+      );
+      }
+    })             
+  })
 })
