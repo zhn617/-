@@ -27,7 +27,7 @@ $('.registered').on('submit',function(e){
     let data = $(this).serialize()
     console.log(data)
   $.ajax({
-      url:"http://ajax.frontend.itheima.net/api/reguser",
+      url:"/api/reguser",
       type:'POST',
       data,
       success:function(res){
@@ -45,13 +45,16 @@ $('.login1').on('submit',function(e){
     e.preventDefault()
     let data = $(this).serialize()
   $.ajax({
-      url:'http://ajax.frontend.itheima.net/api/login',
+      url:'/api/login',
       type:"POST",
       data,
       success:function(res){
         if(res.status !==0){
-            return layer.msg(res.message);
+            return layer.msg(res);
      }
+ 
+    
+    localStorage.setItem('token',res.token)
      layer.msg(
         "登录成功, 即将跳转到首页",
         {
