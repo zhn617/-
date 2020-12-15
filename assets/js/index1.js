@@ -21,13 +21,28 @@ function getUser (){
                     $('.user-header').show() 
                     $('.layui-nav-img').hide()
                        
-                     
+                
                         let T1 = user_name[0].toUpperCase()
                         console.log(T1)
                         $('.user-header').text(T1)
                     }   
+     },
+     complete:function(res){
+            console.log(res)
+          if(res.responseJSON.message !== "获取用户基本信息成功！" && res.responseJSON.status !== '0'){
+            location.href = "/home/login.html"
+            localStorage.removeItem('token')
+          }
      }
  })
 }
 
 
+$('.delBtn').on('click',function(){
+    layer.confirm('确定退出?', {icon: 3, title:'提示'}, function(index){
+        localStorage.removeItem('token')
+        location.href = "/home/login.html" 
+        layer.close(index);
+      });
+
+})
