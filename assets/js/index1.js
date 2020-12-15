@@ -3,11 +3,11 @@ let layer = layui.layer;
 function getUser (){
     $.ajax({
      url:'/my/userinfo',
-     headers:{
-        Authorization:localStorage.getItem('token')
-     },
+    //  headers:{
+    //     Authorization:localStorage.getItem('token')
+    //  },
      success:function(res){
-       console.log(res)
+      
         if(res.status !== 0){
             return layer.msg("获取用户信息失败");
         }
@@ -28,8 +28,8 @@ function getUser (){
                     }   
      },
      complete:function(res){
-            console.log(res)
-          if(res.responseJSON.message !== "获取用户基本信息成功！" && res.responseJSON.status !== '0'){
+        let data = res.responseJSON;
+          if(data.status === 1 && data.message === "身份认证失败！"){
             location.href = "/home/login.html"
             localStorage.removeItem('token')
           }
